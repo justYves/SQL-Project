@@ -1,0 +1,15 @@
+{
+  "name": "sql-project",
+  "version": "1.0.0",
+  "description": "Extra Credit SQL/Node Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Yves Yuen",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.12.4",
+    "sqlite3": "^3.0.8"
+  }
+}
