@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="page-header">
+	<h1>Welcome to Movie Searcher!</h1>
+		{% for movie in movies %}
+			<p>Name: {{movie.name}}</p>
+			<p>Year: {{movie.year}}</p>
+			<p>Rank: {{movie.rank}}</p>
+		{% endfor %}
+</div>
+
+
+{% endblock %}

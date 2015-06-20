@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="page-header">
+	<h1>Welcome to Movie Searcher!</h1>
+
+		<form action="/submit" method="POST">
+			<label for="genre">Select a Genre:</label>
+			<select name="genre-dropdown">
+				<option value=""></option>
+			{% for genre in genres %}
+				<option value="{{genre.genre}}">{{genre.genre}}</option>
+			{% endfor %}
+			</select>
+			<label for="year_field">Select a Year:</label>
+			<input name="year" type="text" id="year_field" 
+			value="" />
+			<input type="submit" value="Submit" />
+		</form>
+
+		{% if showMovies %}
+		<div id="movies">
+			<h3>All {{heading}} movies</h3> 
+				{% if movies.length == 0%}
+				<h4> Sorry no movies in the database from  {{year}}</h4>
+				{% else %}
+<!-- 				<p>Found {.{count}} Results </p> -->
+				<table class="table table-striped">
+					<tr>
+						<th>Movie title</th>
+						<th>Genre<th>
+						<th>Year</th>
+						<th>Score</th>
+					</tr>
+					<!-- display tweets here -->
+					{% for movie in movies %}
+					<tr>
+						<td><a href="/movies/id/{{movie.id}}">{{movie.name}}</a></td>
+						<td>{{movie.genre}}<td>
+						<td>{{movie.year}}</td>
+						<td>{{movie.rank}}</td>
+					</tr>
+					{% endfor %}
+				</table>
+					{% endif %}
+		</div> 
+		{% endif %}
+
+
+
+
+
+{% endblock %}
